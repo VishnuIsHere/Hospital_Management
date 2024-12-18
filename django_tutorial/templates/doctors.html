@@ -1,0 +1,49 @@
+{%extends 'base.html'%}
+
+{%block title%}
+Doctors
+{%endblock%}
+
+{%block content%}
+<style>
+  .card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.card-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+</style>
+<h1 class="text-center my-4">Our Doctors</h1>
+
+<div class="container text-center bg-dark">
+
+{%for d in doctors%}
+<!-- <h1>{{d.doc_name}}</h1> -->
+
+
+<div class="card text-center mx-3 my-3" style="width: 18rem; display:inline-block">
+    <img class="card-img-top" src="{{d.doc_image.url}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Dr.{{d.doc_name}}</h5>
+      <p class="card-text">{{d.doc_spec}}</p>
+      <h6>{{d.dep_name}} Department</h6>
+      
+    </div>
+  </div>
+
+{%endfor%}
+</div>
+{%endblock%}
